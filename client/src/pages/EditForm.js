@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import FormInput from "../components/FormInput";
 
 const EditForm = () => {
   const [title, setTitle] = useState("");
@@ -107,12 +108,12 @@ const EditForm = () => {
 
           {inputs.map((input, index) => (
             <div key={index} style={{ marginBottom: "10px" }}>
-              <input
+              <FormInput
                 type={input.type}
                 value={input.title}
                 placeholder={input.placeholder}
-                readOnly
-                style={{ width: "100%", marginBottom: "5px" }}
+                readOnly={true}
+                mode="create" // set mode to view for creting  form
               />
               <button onClick={() => editButtonHandler(index)}>Edit</button>
               <button onClick={() => deleteInput(index)}>Delete</button>

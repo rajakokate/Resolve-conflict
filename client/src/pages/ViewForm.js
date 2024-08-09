@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import FormInput from "../components/FormInput";
 
 const ViewForm = () => {
   const { id } = useParams();
@@ -53,13 +54,14 @@ const ViewForm = () => {
             <div key={index} style={{marginBottom: "10px"}}>
                 <label>
                     {input.title}
-                    <input
+                    <FormInput
                     type={input.type}
                     name={input.title}
                     value={formData[input.title] || ""}   
                     placeholder={input.placeholder}
                     onChange = {handleChange}
                     required
+                    mode='view'
                     />
                     
                 </label>
