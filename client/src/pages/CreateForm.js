@@ -74,9 +74,9 @@ const CreateForm = () => {
       navigate("/");
     } catch (error) {
       console.error("Error creating form");
-      alert("Failed to create form please try again");
+      alert("Failed to create form please add inputs");
     }
-  };
+  };    
 
   return (
     <div>

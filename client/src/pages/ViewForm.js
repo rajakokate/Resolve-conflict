@@ -71,7 +71,7 @@ const ViewForm = () => {
           Submit
         </button>
       </form>
-      <Link className=" link-container" to="/">
+      <Link className=" link-container " to="/">
         Go to dashboard
       </Link>
     </div>

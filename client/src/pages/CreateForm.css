@@ -69,7 +69,7 @@
 .input-options {
   margin-top: 10px;
 }
-
+ 
 
 .input-bottom-border {
     border: none; /* Remove all borders */
@@ -108,3 +108,8 @@
     justify-content: center;
 }
 
+
+.add-input-btn {
+    display: flex;
+    justify-content: center;
+}

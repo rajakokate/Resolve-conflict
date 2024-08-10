@@ -1,5 +1,4 @@
-Container for the whole form view
-.view-form-container {
+Container for the whole form view .view-form-container {
   border: 1px solid #ccc; /* Border around the main container */
   padding: 20px;
   max-width: 800px;
@@ -15,7 +14,7 @@ h1 {
 
 /* Form styling */
 form {
-  display: flex;
+  display: flex; 
   flex-direction: column;
 }
 
@@ -67,24 +66,8 @@ form {
   background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Link styling */
-/* a {
-  display: block;
-  text-align: center;
-  margin-top: 20px;
-  color: #007bff;
-  text-decoration: none;
-  font-size: 16px;
-} */
-
-/* Link hover effect */
-/* a:hover {
-  text-decoration: underline;
-} */
-
 .link-container {
   display: flex;
   justify-content: center; /* Center the link horizontally */
   margin-top: 20px; /* Space above the link */
 }
-
