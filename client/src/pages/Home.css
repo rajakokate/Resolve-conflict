@@ -1,0 +1,41 @@
+.header {
+    text-align: center;
+}
+
+.formHeading {
+    text-align: left;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.form-item {
+    border: 1px solid #ddd; 
+    padding: 16px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    width: 100%;
+}
+
+.form-item h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.form-actions {
+    margin-top: 10px;
+}
+
+.form-actions a, 
+.form-actions button {
+    margin-right: 10px;
+}
+

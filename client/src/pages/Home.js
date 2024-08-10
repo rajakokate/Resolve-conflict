@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Home.css";
 
 const Home = () => {
   const [forms, setForms] = useState([]);
@@ -24,35 +25,50 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Welcome to Form.com</h1>
-      <p>This is a simple form builder.</p>
-      <Link to="/form/create">Create new form</Link>
+      <div className="header">
+        <h1>Welcome to Form.com</h1>
+        <p>This is a simple form builder.</p>
+        <Link to="/form/create" className="btn btn-success">
+          CREATE NEW FORM
+        </Link>
+      </div>
       <hr></hr>
 
-      <div>
-        <h1>Forms</h1>
-        {forms.length === 0 ? (
-          <p>You have no forms created yet</p>
-        ) : (
-          <ul>
-            {forms.map((form) => (
-              <li key={form._id}>
-                <div>
-                  <h2>{form.title}</h2>
-                  <div>
-                    <Link to={`/form/${form._id}`}>View</Link>
-                    <Link to={`/form/${form._id}/edit`}>Edit</Link>
-                    <button onClick={() => handleDelete(form._id)}>
-                      Delete
-                    </button>
-                  </div>
+      <h1 className="formHeading">Forms</h1>
+
+      {forms.length === 0 ? (
+        <p>You have no forms created yet</p>
+      ) : (
+        <div className="form-container">
+          {forms.map((form) => (
+            <div key={form._id} className="form-item">
+              <div>
+                <h2>{form.title}</h2>
+                <div className="form-actions">
+                  <Link
+                    to={`/form/${form._id}`}
+                    className="btn btn-outline-success"
+                  >
+                    VIEW
+                  </Link>
+                  <Link
+                    to={`/form/${form._id}/edit`}
+                    className="btn btn-outline-info"
+                  >
+                    EDIT
+                  </Link>
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={() => handleDelete(form._id)}
+                  >
+                    DELETE
+                  </button>
                 </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-       
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -73,7 +73,7 @@ const CreateForm = () => {
       navigate("/");
     } catch (error) {
       console.error("Error creating form");
-      alert("Failed to create form please try again")
+      alert("Failed to create form please try again");
     }
   };
 
@@ -101,7 +101,7 @@ const CreateForm = () => {
                 value={input.title}
                 placeholder={input.placeholder}
                 readOnly={true}
-                mode='create' // set mode to view for creting  form
+                mode="create" // set mode to view for creting  form
               />
               <button onClick={() => editButtonHandler(index)}>Edit</button>
               <button onClick={() => deleteInput(index)}>Delete</button>
