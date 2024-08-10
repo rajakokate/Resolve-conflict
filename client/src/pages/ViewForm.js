@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import FormInput from "../components/FormInput";
+import "./ViewForm.css";
 
 const ViewForm = () => {
   const { id } = useParams();
@@ -31,49 +32,50 @@ const ViewForm = () => {
   };
 
   const handleSubmit = async (e) => {
-      
-
     e.preventDefault();
     try {
       await axios.post(`http://localhost:5000/api/form/${id}/submit`, formData);
-      alert('Form submitted. Thank you Open console for form Data')
+      alert("Form submitted. Thank you! Open the console for form data.");
       console.log(formData);
     } catch (error) {
       console.error("Error submitting form", error);
     }
-
   };
 
-  if (!form) return <p>Loading...</p>
+  if (!form) return <p>Loading...</p>;
 
   return (
-<div>
-    <h1>{form.title}</h1>
-    <form onSubmit={handleSubmit}>
-        {form.inputs.map((input, index) => (
-            <div key={index} style={{marginBottom: "10px"}}>
-                <label>
-                    {input.title}
-                    <FormInput
-                    type={input.type}
-                    name={input.title}
-                    value={formData[input.title] || ""}   
-                    placeholder={input.placeholder}
-                    onChange = {handleChange}
-                    required
-                    mode='view'
-                    />
-                    
-                </label>
-
-
+    <div className="view-form-container">
+      <h1>{form.title}</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-input-grid">
+          {form.inputs.map((input, index) => (
+            <div key={index} className="form-input-container">
+              <label>
+                {input.title}
+                <FormInput
+                  type={input.type}
+                  name={input.title}
+                  value={formData[input.title] || ""}
+                  placeholder={input.placeholder}
+                  onChange={handleChange}
+                  required
+                  mode="view"
+                  className="input-bottom-border"
+                />
+              </label>
             </div>
-        ))}
-        <button type="submit"> Submit</button>
-    </form>
-    <Link to="/">Go to dashboard</Link>
-</div>
-  )
+          ))}
+        </div>
+        <button className="submitButton" type="submit">
+          Submit
+        </button>
+      </form>
+      <Link className=" link-container" to="/">
+        Go to dashboard
+      </Link>
+    </div>
+  );
 };
 
 export default ViewForm;

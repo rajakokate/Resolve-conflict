@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormInput from "../components/FormInput";
+import "./CreateForm.css";
 
 const CreateForm = () => {
   const [title, setTitle] = useState("Untitled Form");
@@ -79,55 +80,103 @@ const CreateForm = () => {
 
   return (
     <div>
-      <h1>Create New Form</h1>
-      <div
-        style={{ display: "flex", padding: "20px", border: "1px solid #ccc" }}
-      >
+      <h1 className="header">Create New Form </h1>
+
+      <div className="container">
         {/* Left Container */}
         <div
-          style={{ flex: 1, padding: "10px", borderRight: "1px solid #ccc" }}
+          style={{
+            flex: 2,
+            padding: "10px",
+            borderRight: "1px solid #ccc",
+            alignItems: "center",
+            textAlign: "center",
+          }}
         >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <h2>{title}</h2>
-            <button onClick={() => setVisibleForm("edit-form-title")}>
+          <div className="header-container">
+            <h2 className="form-title">{title}</h2>
+            <button
+              className="btn btn-outline-info"
+              onClick={() => setVisibleForm("edit-form-title")}
+            >
               Edit
             </button>
           </div>
 
-          {inputs.map((input, index) => (
-            <div key={index} style={{ marginBottom: "10px" }}>
-              <FormInput
-                type={input.type}
-                value={input.title}
-                placeholder={input.placeholder}
-                readOnly={true}
-                mode="create" // set mode to view for creting  form
-              />
-              <button onClick={() => editButtonHandler(index)}>Edit</button>
-              <button onClick={() => deleteInput(index)}>Delete</button>
-            </div>
-          ))}
+          <div className="input-items">
+            {inputs.map((input, index) => (
+              <div key={index} className="input-item">
+                <FormInput
+                  type={input.type}
+                  value={input.title}
+                  placeholder={input.placeholder}
+                  readOnly={true}
+                  mode="create"
+                  className="input-bottom-border"
+                />
+
+                <div className="input-actions">
+                  <button
+                    className="btn btn-outline-info"
+                    onClick={() => editButtonHandler(index)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={() => deleteInput(index)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
 
           <div>
-            <button type="button" onClick={toggleInputOptions}>
+            <button
+              type="button"
+              className="btn btn-outline-info add-input-button"
+              onClick={toggleInputOptions}
+            >
               {showInputOptions ? "CLOSE ADD INPUT" : "ADD INPUT"}
             </button>
           </div>
           {showInputOptions && (
-            <div style={{ marginTop: "10px" }}>
-              <button type="button" onClick={() => addInput("text")}>
+            <div className="input-option-container">
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => addInput("text")}
+              >
                 Text
               </button>
-              <button type="button" onClick={() => addInput("number")}>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => addInput("number")}
+              >
                 Number
               </button>
-              <button type="button" onClick={() => addInput("email")}>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => addInput("email")}
+              >
                 Email
               </button>
-              <button type="button" onClick={() => addInput("password")}>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => addInput("password")}
+              >
                 Password
               </button>
-              <button type="button" onClick={() => addInput("date")}>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => addInput("date")}
+              >
                 Date
               </button>
             </div>
@@ -135,7 +184,7 @@ const CreateForm = () => {
         </div>
 
         {/* Right Container */}
-        <div style={{ flex: 1, padding: "10px" }}>
+        <div className="right-container">
           <h2>Form Editor</h2>
           {visibleForm === "edit-form-title" && (
             <label>
@@ -144,19 +193,22 @@ const CreateForm = () => {
                 type="text"
                 value={title}
                 onChange={handleTitleChange}
-                placeholder="Title"
+                // placeholder="Title"
+                required
+                className="input-bottom-border"
               />
             </label>
           )}
 
           {visibleForm === "edit-form-input" && (
-            <div>
+            <div className='form-container'>
               <label>
                 Title:
                 <input
                   type="text"
                   value={currentTitle}
                   onChange={handleCurrentTitleChange}
+                  className="input-bottom-border"
                 />
               </label>
               <br />
@@ -166,6 +218,7 @@ const CreateForm = () => {
                   type="text"
                   value={currentPlaceholder}
                   onChange={handleCurrentPlaceholderChange}
+                  className="input-bottom-border"
                 />
               </label>
             </div>
@@ -175,13 +228,15 @@ const CreateForm = () => {
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={handleCreateForm}
-        style={{ marginTop: "20px" }}
-      >
-        Create Form
-      </button>
+      <div className="center-button-container">
+        <button
+          type="button"
+          onClick={handleCreateForm}
+          className="btn btn-success create-form-button  "
+        >
+          Create Form
+        </button>
+      </div>
     </div>
   );
 };
