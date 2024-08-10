@@ -35,8 +35,6 @@ form-builder/
 
 ## Setup
 
-### Environment Variable 
- ** 
 
 ### Backend
 
