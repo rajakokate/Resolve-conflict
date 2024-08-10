@@ -35,7 +35,14 @@ form-builder/
 
 ## Setup
 
+### Environment Variable 
+ ** 
+
 ### Backend
+
+Note - ### Environment Variable 
+ ** Please create a file .env and add your mongodbURL
+MONGODB_URL="Your url"
 
 1. **Navigate to the backend directory:**
 
