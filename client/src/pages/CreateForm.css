@@ -1,0 +1,115 @@
+/* Container for Left and Right parts */
+.container {
+  display: flex; /* Aligns the left and right containers side by side */
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* height: 50vh; */
+}
+
+/* Style for the left container */
+.left-container {
+  flex: 2;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Grid layout for input items - Ensure items are aligned in 2 columns */
+.input-items {
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns layout */
+  gap: 10px; /* Space between items */
+  border-radius: 4px;
+  /* background-color: #f9f9f9; */
+  text-align: left;
+  
+  max-width: 90%;
+  width: 100%;
+  padding: 10px; /* Padding inside grid */
+}
+
+/* Style for each input item */
+.input-item {
+  display: flex;
+  align-items: center; /* Stack input and actions vertically */
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for input actions (buttons) */
+.input-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px; /* Space between action buttons */
+}
+
+/* Style for header container to center items */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+  margin-bottom: 10px;
+}
+
+/* Style for form title */
+.header-container .form-title {
+  margin-right: 10px; /* Space between title and edit button */
+}
+
+/* Style for the create form button */
+.create-form-button {
+  margin-top: 20px;
+}
+
+/* Style for the input options section */
+.input-options {
+  margin-top: 10px;
+}
+ 
+
+.input-bottom-border {
+    border: none; /* Remove all borders */
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+  padding: 8px; /* Optional: add padding for better spacing */
+  outline: none; 
+  box-shadow: none; /* Remove default focus shadow */
+}
+
+.input-bottom-border:focus {
+  border-bottom: 2px solid #add8e6; /* Light blue color */
+}
+
+.add-input-button {
+    margin-top: 15px;
+}
+
+.input-option-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap : 10px;
+}
+
+
+
+/* right .container css */
+.right-container {
+   flex: 1;
+   margin-left: 20px;
+    
+}
+
+.center-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.add-input-btn {
+    display: flex;
+    justify-content: center;
+}
